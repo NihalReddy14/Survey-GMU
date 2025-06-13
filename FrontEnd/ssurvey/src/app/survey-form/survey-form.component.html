@@ -1,0 +1,157 @@
+<!-- Author: Vishal Chandra Podishetty G01426953 -->
+<!-- Author: Nihal Reddy Cheruku G01455466 -->
+<div class="container mt-5">
+  <h2>Student Survey Form</h2>
+  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstName">* First Name:</label>
+      <input type="text"
+             id="firstName"
+             class="form-control"
+             name="firstName"
+             [(ngModel)]="survey.firstName"
+             required />
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">* Last Name:</label>
+      <input type="text"
+             id="lastName"
+             class="form-control"
+             name="lastName"
+             [(ngModel)]="survey.lastName"
+             required />
+    </div>
+
+    <!-- Street Address -->
+    <div class="form-group">
+      <label for="streetAddress">* Street Address:</label>
+      <input type="text"
+             id="streetAddress"
+             class="form-control"
+             name="streetAddress"
+             [(ngModel)]="survey.streetAddress"
+             required />
+    </div>
+
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">* City:</label>
+      <input type="text"
+             id="city"
+             class="form-control"
+             name="city"
+             [(ngModel)]="survey.city"
+             required />
+    </div>
+
+    <!-- State -->
+    <div class="form-group">
+      <label for="state">* State:</label>
+      <input type="text"
+             id="state"
+             class="form-control"
+             name="state"
+             [(ngModel)]="survey.state"
+             required />
+    </div>
+
+    <!-- Zip -->
+    <div class="form-group">
+      <label for="zip">Zip</label>
+      <input type="text"
+             id="zip"
+             class="form-control"
+             name="zip"
+             [(ngModel)]="survey.zip"
+             required />
+    </div>
+
+    <!-- Telephone -->
+    <div class="form-group">
+      <label for="telephone">* Telephone:</label>
+      <input type="text"
+             id="telephone"
+             class="form-control"
+             name="telephone"
+             [(ngModel)]="survey.telephone"
+             required />
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">* Email:</label>
+      <input type="email"
+             id="email"
+             class="form-control"
+             name="email"
+             [(ngModel)]="survey.email"
+             required />
+    </div>
+
+    <!-- Survey Date -->
+    <div class="form-group">
+      <label for="surveyDate">* Date of Survey:</label>
+      <input type="date"
+             id="surveyDate"
+             class="form-control"
+             name="surveyDate"
+             [(ngModel)]="survey.surveyDate"
+             required />
+    </div>
+
+    <!-- Liked Aspects (Checkboxes) -->
+    <div class="form-group">
+      <label>What did you like most about the campus?</label>
+      <div *ngFor="let option of likedAspectsOptions">
+        <input type="checkbox"
+               [value]="option"
+               (change)="onCheckboxChange($event)" />
+        {{ option }}
+      </div>
+    </div>
+
+    <!-- Interest Source (Radio Buttons) -->
+    <div class="form-group">
+      <label>How did you hear about us?</label>
+      <div *ngFor="let option of interestSourceOptions">
+        <input type="radio"
+               name="interestSource"
+               [value]="option"
+               [(ngModel)]="survey.interestSource" />
+        {{ option }}
+      </div>
+    </div>
+
+    <!-- Likelihood to Recommend (Dropdown) -->
+    <div class="form-group">
+      <label>How likely are you to recommend us?</label>
+      <select class="form-control"
+              name="likelihoodToRecommend"
+              [(ngModel)]="survey.likelihoodToRecommend"
+              required>
+        <option *ngFor="let option of likelihoodOptions" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Additional Comments -->
+    <div class="form-group">
+      <label for="additionalComments">Additional Comments</label>
+      <textarea id="additionalComments"
+                class="form-control"
+                name="additionalComments"
+                [(ngModel)]="survey.additionalComments"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      Cancel
+    </button>
+  </form>
+</div>
