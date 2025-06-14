@@ -1,6 +1,6 @@
  Student Survey Fullstack App
 
-A fullstack web application for submitting and managing student surveys. Built using:
+A fullstack web application for submitting and managing student surveys. This Project was done by both me and my friend. Built using:
 
  Angular (Frontend)
  Spring Boot (Backend)
